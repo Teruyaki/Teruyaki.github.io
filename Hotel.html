@@ -1,0 +1,259 @@
+<html>
+<head>
+	<style>
+	body {
+		background-image: url(https://media.wsimag.com/attachments/a48de95a7e6f46132c9ff3ed2c0ab45d62864859/store/fill/1254/705/6e8b88c0eeef2b286f05ab4be040ba6a9aacde8101b715825368d9eb5507/Sunset-over-Shinjuku.jpg);
+		background-size: cover;
+	}
+		#nope {
+			text-align: center;
+			font-size: 60px;
+		}
+		#roomOne {
+			width: 23%;
+			background-color: #841111;
+			float: left;
+			border-radius: 25px;
+			padding: 10px;
+			margin: 2px;
+		}
+		#roomTwo {
+			width: 23%;
+			background-color: #611184;
+			float: left;
+			border-radius: 25px;
+			padding: 10px;	
+			margin: 2px;							
+		}
+		#vip {
+			width: 23%;
+			background-color: #a3c1ad;
+			float: left;
+			border-radius: 25px;
+			padding: 10px;
+			margin: 2px;									
+		}
+		#roomFour {
+			width: 23%;
+			background-color: #847a11;
+			float: left;
+			border-radius: 25px;
+			padding: 10px;	
+			margin: 2px;									
+		}
+		#error {
+			visibility: hidden;
+			text-align: center;
+		}
+		#error2 {
+			visibility: hidden;
+			text-align: center;
+		}
+		#error3 {
+			visibility: hidden;
+			text-align: center;
+		}
+		#error4 {
+			visibility: hidden;
+			text-align: center;
+		}
+		#bryson {
+			visibility: hidden;
+			text-align: center;
+		}
+		#bryson2 {
+			visibility: hidden;
+			text-align: center;
+		}
+		#bryson3 {
+			visibility: hidden;
+			text-align: center;
+		}
+		#bryson4 {
+			visibility: hidden;
+			text-align: center;
+		}
+		.head {
+			text-align: center;
+		}
+		input {
+			display: block;
+			margin: 0 auto;
+		}
+
+
+
+	</style>
+	<script>
+	var i = 0;
+	var a = 0;
+	var b = 0;
+	var c = 0;
+	// a key map of allowed keys
+var allowedKeys = {
+  37: 'left',
+  38: 'up',
+  39: 'right',
+  40: 'down',
+  65: 'a',
+  66: 'b'
+};
+
+// the 'official' Konami Code sequence
+var konamiCode = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right', 'b', 'a'];
+
+// a variable to remember the 'position' the user has reached so far.
+var konamiCodePosition = 0;
+
+// add keydown event listener
+document.addEventListener('keydown', function(e) {
+  // get the value of the key code from the key map
+  var key = allowedKeys[e.keyCode];
+  // get the value of the required key from the konami code
+  var requiredKey = konamiCode[konamiCodePosition];
+
+  // compare the key with the required key
+  if (key == requiredKey) {
+
+    // move to the next key in the konami code sequence
+    konamiCodePosition++;
+
+    // if the last key is reached, activate cheats
+    if (konamiCodePosition == konamiCode.length) {
+      activateCheats();
+      konamiCodePosition = 0;
+    }
+  } else {
+    konamiCodePosition = 0;
+  }
+});
+
+function activateCheats() {
+	window.alert("activated");
+  location.replace("secretRoom.html");
+
+}
+
+	function addPerson(event) {
+	if (i===3) {
+		document.getElementById('error').style.visibility = "visible"
+
+	}
+	else if (window.event.keyCode == 13) {
+		if (i<1) {document.getElementById('bryson').style.visibility = "visible"}
+			var newItem = document.createElement('li');
+			var date = new Date().toUTCString();
+			var newText = document.createTextNode(guest1.value + ", " + date);
+			newItem.appendChild(newText);
+			var position = document.querySelectorAll("ol.listOne")[0];
+			position.appendChild(newItem);
+			i++;
+			newItem.onclick=function(){
+				this.parentNode.removeChild(this);
+				i--;
+				document.getElementById('error').style.visibility = "hidden"
+				document.getElementById('bryson').style.visibility = "hidden"
+		}
+		}
+	}
+	function addPerson2(event) {
+	if (a === 3) {
+		document.getElementById('error2').style.visibility = "visible"
+	}
+	else if (window.event.keyCode == 13){
+		if (i<1) {document.getElementById('bryson2').style.visibility = "visible"}
+			var newItem2 = document.createElement('li');
+			var date2 = new Date().toUTCString();
+			var newText2 = document.createTextNode(guest2.value + ", " + date2);
+			newItem2.appendChild(newText2);
+			var position2 = document.querySelectorAll("ol.listTwo")[0];
+			position2.appendChild(newItem2);
+			a++
+			newItem2.onclick=function(){
+				this.parentNode.removeChild(this);
+				a--;
+				document.getElementById('error2').style.visibility = "hidden"
+				document.getElementById('bryson2').style.visibility = "hidden"
+		}
+		}
+	}
+		function addPerson3(event) {
+	if (b === 3) {
+		document.getElementById('error3').style.visibility = "visible"
+	}
+	else if (window.event.keyCode == 13){
+		if (i<1) {document.getElementById('bryson3').style.visibility = "visible"}
+			var newItem3 = document.createElement('li');
+			var date3 = new Date().toUTCString();
+			var newText3 = document.createTextNode(guest3.value + ", " + date3);
+			newItem3.appendChild(newText3);
+			var position3 = document.querySelectorAll("ol.listThree")[0];
+			position3.appendChild(newItem3);
+			b++
+			newItem3.onclick=function(){
+				this.parentNode.removeChild(this);
+				b--;
+				document.getElementById('error3').style.visibility = "hidden"
+				document.getElementById('bryson3').style.visibility = "hidden"
+		}
+		}
+	}
+		function addPerson4(event) {
+	if (c === 3) {
+		document.getElementById('error4').style.visibility = "visible"
+	}
+	else if (window.event.keyCode == 13){
+		if (i<1) {document.getElementById('bryson4').style.visibility = "visible"}
+			var newItem4 = document.createElement('li');
+			var date4 = new Date().toUTCString();
+			var newText4 = document.createTextNode(guest4.value + ", " + date4);
+			newItem4.appendChild(newText4);
+			var position4 = document.querySelectorAll("ol.listFour")[0];
+			position4.appendChild(newItem4);
+			c++
+			newItem4.onclick=function(){
+				this.parentNode.removeChild(this);
+				c--;
+				document.getElementById('error4').style.visibility = "hidden"
+				document.getElementById('bryson4').style.visibility = "hidden"
+		}
+		}
+	}
+	</script>
+</head>
+<body>
+<h1 id="nope">Teruyaki Hotel</h1>
+	<div id=roomOne>
+		<h1 class="head">Room One</h1>
+		<input type="text" id="guest1" onkeypress="addPerson(event)" maxlength="10">
+		<br>
+		<ol class="listOne"></ol>
+		<p id="bryson">Click to remove</p>
+		<p id="error">The Max for this room is 3</p>
+	</div>
+	<div id=roomTwo>
+		<h1 class="head">Room Two</h1>
+		<input type="text" id="guest2" onkeypress="addPerson2(event)" maxlength="10">
+		<br>
+		<ol class="listTwo" id="testTwo"></ol>
+		<p id="bryson2">Click to remove</p>
+		<p id="error2">The Max for this room is 3</p>
+	</div>
+	<div id=vip>
+		<h1 class="head">Room Three</h1>
+		<input type="text" id="guest3" onkeypress="addPerson3(event)" maxlength="10">
+		<br>
+		<ol class="listThree" id="testThree"></ol>
+		<p id="bryson3">Click to remove</p>
+		<p id="error3">The Max for this room is 3</p>
+	</div>
+	<div id=roomFour>
+		<h1 class="head">Room Four</h1>
+		<input type="text" id="guest4" onkeypress="addPerson4(event)" maxlength="10">
+		<br>
+		<ol class="listFour" id="testFour"></ol>
+		<p id="bryson4">Click to remove</p>
+		<p id="error4">The Max for this room is 3</p>
+	</div>
+</body>
+</html>
