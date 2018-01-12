@@ -21,6 +21,7 @@ function preload() {
     game.load.spritesheet('dude', 'assets/dude.png', 32, 48);
     game.load.audio('music', 'assets/Your Reality Doki Doki Literature Club ending song (no spoilers).mp3');
 	backgroundMusic = game.add.audio('music');
+	backgroundMusic.loop = true;
 	backgroundMusic.play();
 }
 var player;
