@@ -78,7 +78,19 @@ function create() {
     scoreText = game.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
     //  Our controls.
     cursors = game.input.keyboard.createCursorKeys();
-    
+	//matain aspect ratio
+	game.scale.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
+	game.input.onDown.add(goFull, this);
+}
+	//function makes the game go into fullscreen
+	function goFull(){
+	if (game.scale.isFullScreen)
+	{
+		game.scale.stopFullScreen();
+	}
+	else{
+		game.scale.startFullScreen(false);
+	}
 }
 function update() {
     //  Collide the player and the stars with the platforms
