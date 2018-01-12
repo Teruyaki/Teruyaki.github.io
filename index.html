@@ -17,7 +17,7 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create
 function preload() {
     game.load.image('sky', 'assets/sky.png');
     game.load.image('ground', 'assets/platform.png');
-    game.load.image('star', 'assets/star.png');
+    game.load.image('sayori', 'assets/star.png');
     game.load.spritesheet('dude', 'assets/dude.png', 32, 48);
     game.load.audio('music', 'assets/Your Reality Doki Doki Literature Club ending song (no spoilers).mp3');
 	backgroundMusic = game.add.audio('music');
@@ -69,14 +69,14 @@ function create() {
     for (var i = 0; i < 12; i++)
     {
         //  Create a star inside of the 'stars' group
-        var sprite = game.add.sprite(game.world.randomX, game.world.randomY, 'star');
+        var star = game.add.sprite(game.world.randomX, game.world.randomY, 'sayori');
         //  Let gravity do its thing
-        sprite.body.gravity.y = 300;
+        star.body.gravity.y = 300;
         //  This just gives each star a slightly random bounce value
-        sprite.body.bounce.y = 0.7 + Math.random() * 0.2;
+        star.body.bounce.y = 0.7 + Math.random() * 0.2;
 	// This changes the size of the sprites
-	    sprite.scale.x = 3;
-	    sprite.scale.y = 3;
+	    star.scale.x = 3;
+	    star.scale.y = 3;
     }
     //  The score
     scoreText = game.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
@@ -99,9 +99,9 @@ function create() {
 function update() {
     //  Collide the player and the stars with the platforms
     game.physics.arcade.collide(player, platforms);
-    game.physics.arcade.collide(stars, platforms);
+    game.physics.arcade.collide(sayori, platforms);
     //  Checks to see if the player overlaps with any of the stars, if he does call the collectStar function
-    game.physics.arcade.overlap(player, stars, collectStar, null, this);
+    game.physics.arcade.overlap(player, sayori, collectStar, null, this);
     //  Reset the players velocity (movement)
     player.body.velocity.x = 0;
     if (cursors.left.isDown)
@@ -129,10 +129,10 @@ function update() {
         player.body.velocity.y = -350;
     }
 }
-function collectStar (player, star) {
+function collectStar (player, sayori) {
     
     // Removes the star from the screen
-    star.kill();
+    sayori.kill();
     //  Add and update the score
     score += 1000000;
     scoreText.text = 'Score: ' + score;
