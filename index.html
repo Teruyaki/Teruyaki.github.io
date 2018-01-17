@@ -36,6 +36,8 @@ function create() {
     game.physics.startSystem(Phaser.Physics.ARCADE);
     //  A simple background for our game
     sky = game.add.tileSprite(0, 0, 800, 600, 'sky');
+	sky.width = 800;
+	sky.height = 600;
 	//set image to sit screen
     //  The platforms group contains the ground and the 2 ledges we can jump on
     platforms = game.add.group();
