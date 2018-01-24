@@ -48,9 +48,9 @@ function create() {
     //  This stops it from falling away when you jump on it
     ground.body.immovable = true;
     //  Now let's create two ledges
-    var ledge = platforms.create(400, 470, 'ground');
+    var ledge = platforms.create(400, 550, 'ground');
     ledge.body.immovable = true;
-    ledge = platforms.create(-150, 400, 'ground');
+    ledge = platforms.create(-150, 470, 'ground');
     ledge.body.immovable = true;
     // The player and its settings
     player = game.add.sprite(32, game.world.height - 150, 'dude');
