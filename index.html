@@ -29,9 +29,19 @@ var mainState = {
     },
 
     update: function() {
-        // This function is called 60 times per second    
-        // It contains the game's logic   
-    },
+	if (this.bird.y < 0 || this.bird.y > 490)
+        this.restartGame();
+    }, 
+	jump: function() {
+    // Add a vertical velocity to the bird
+    this.bird.body.velocity.y = -350;
+},
+
+// Restart the game
+restartGame: function() {
+    // Start the 'main' state, which restarts the game
+    game.state.start('main');
+},
 };
 
 var game = new Phaser.Game(400, 900);
