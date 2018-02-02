@@ -29,7 +29,7 @@ var mainState = {
     spaceKey.onDown.add(this.jump, this); 
     this.pipes = game.add.group(); 
    
-addOnePipe: function() {
+addOnePipe: function(x, y) {
 
     var pipe = game.add.sprite(x, y, 'pipe');
 
@@ -45,6 +45,7 @@ addOnePipe: function() {
  
     pipe.checkWorldBounds = true;
     pipe.outOfBoundsKill = true;
+}
 },
 addRowOfPipes: function() {
     var hole = Math.floor(Math.random() * 5) + 1;
