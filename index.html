@@ -28,7 +28,8 @@ var mainState = {
     var spaceKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);               
     spaceKey.onDown.add(this.jump, this); 
     this.pipes = game.add.group(); 
-	    addOnePipe: function(x, y) {
+    },
+addOnePipe: function(x, y) {
     var pipe = game.add.sprite(x, y, 'pipe');
     this.pipes.add(pipe);
     game.physics.arcade.enable(pipe);
