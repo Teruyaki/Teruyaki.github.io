@@ -73,6 +73,7 @@ create: function() {
             
         // Set the alive property of the bird to false
         this.bird.alive = false;
+	    game.camera.shake(0.05, 500);
 
         // Prevent new pipes from appearing
         game.time.events.remove(this.timer);
