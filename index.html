@@ -48,7 +48,6 @@ create: function() {
             this.restartGame(); 
 
         game.physics.arcade.overlap(this.bird, this.pipes, this.hitPipe, null, this); 
-	    game.physics.arcade.overlap(this.bird, this.pipes, this.shake, null, this);
             
         // Slowly rotate the bird downward, up to a certain point.
         if (this.bird.angle < 20)
@@ -66,9 +65,7 @@ create: function() {
         game.add.tween(this.bird).to({angle: -20}, 100).start();
 
     },
-	shake: function(){
-	 game.camera.shake(0.05, 500);
-	},
+
 
     hitPipe: function() {
         // If the bird has already hit a pipe, we have nothing to do
