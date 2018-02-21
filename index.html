@@ -19,7 +19,7 @@ var mainState = {
 	game.load.image('bird', './assets/bird.png');
 	game.load.image('pipe', './assets/pipe.png');
     },
-
+var bird;
 create: function() { 
 	game.stage.backgroundColor = '#71c5cf';
         game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -40,9 +40,18 @@ create: function() {
 
         this.score = 0;
         this.labelScore = game.add.text(20, 20, "0", { font: "30px Arial", fill: "#ffffff" });  
+	 game.camera.follow(bird, Phaser.Camera.FOLLOW_LOCKON, 0.1, 0.1);
+
+    game.input.onDown.add(flash, this);
 
     },
+	    
+function flash() {
 
+    //  You can set your own flash color and duration
+    game.camera.flash(0xff0000, 500);
+
+}
     update: function() {
         if (this.bird.y < 0 || this.bird.y > game.world.height)
             this.restartGame(); 
